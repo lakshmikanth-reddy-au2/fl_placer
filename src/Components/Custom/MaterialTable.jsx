@@ -45,6 +45,7 @@ const CustomTable = (props) => {
   return (
     <div className="table">
       <MaterialTable
+        className="mat-table"
         icons={tableIcons}
         columns={props.columns}
         data={props.rows}

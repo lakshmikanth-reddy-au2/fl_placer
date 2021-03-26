@@ -7,7 +7,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
-import CommonButton from "../Common/Button";
+import CommonButton from "../Common/Button.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addEmployeeAction,
@@ -246,55 +246,58 @@ export default function AddEmployee(props) {
   };
   return (
     <div className="main-Content">
-      <Grid container spacing={3}>
-        <Grid item md={12}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link color="inherit" href="/">
+      <Grid container spacing={3} className="form-add-emp-grid">
+        <Grid item md={12} className="breadcrumb-grid">
+          <Breadcrumbs aria-label="breadcrumb" className="breadcrumb-item">
+            <Link color="inherit" href="/" className="home-link">
               Employee List
             </Link>
             
-            <Typography color="textPrimary">{props.isUpdate ? "Update Employee" : "Add Employee" }</Typography>
+            <Typography className="bread-text-final" color="textPrimary">{props.isUpdate ? "Update Employee" : "Add Employee" }</Typography>
           </Breadcrumbs>
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6} className="empName-grid-item">
           <TextField
             error={errorObject.employeeName.isError}
             value={inputObj.employeeName}
             fullWidth
             id="employeeName"
             label="Name"
+            className="empName-textfield"
             helperText={errorObject.employeeName.errorValue}
             variant="outlined"
             onChange={(e) => handleInputChange(e, "employeeName")}
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6} className="role-grid-item">
           <TextField
             value={inputObj.role}
             error={errorObject.role.isError}
             fullWidth
             id="role"
             label="Role"
+            className="role-textfield"
             helperText={errorObject.role.errorValue}
             variant="outlined"
             onChange={(e) => handleInputChange(e, "role")}
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6} className="location-grid-item">
           <TextField
             value={inputObj.location}
             error={errorObject.location.isError}
             fullWidth
             id="location"
             label="Location"
+            className="location-textfield"
             helperText={errorObject.location.errorValue}
             variant="outlined"
             onChange={(e) => handleInputChange(e, "location")}
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={6} style={{ display: "flex" }}>
+        <Grid item xs={12} sm={12} md={6} style={{ display: "flex" }} className="active-grid-item">
           <FormControl className={classes.formControl}>
-            <FormLabel component="legend">Active</FormLabel>
+            <FormLabel className="active-label" component="legend">Active</FormLabel>
             <RadioGroup
               value={inputObj.active}
               aria-label="Active"
@@ -308,19 +311,21 @@ export default function AddEmployee(props) {
                 value="True"
                 control={<StyledRadio />}
                 label="True"
+                className="true-label"
               />
               <FormControlLabel
                 value="False"
                 control={<StyledRadio />}
                 label="False"
+                className="false-label"
               />
             </RadioGroup>
           </FormControl>
         </Grid>
       </Grid>
       <Grid container spacing={3} justify="flex-end">
-        <CommonButton handleAddButtonClick={handleCancel}>Cancel</CommonButton>
-        <CommonButton handleAddButtonClick={handleSave}>Save</CommonButton>
+        <CommonButton className="btn btn-secondary" handleAddButtonClick={handleCancel}>Cancel</CommonButton>
+        <CommonButton className="btn btn-primary" handleAddButtonClick={handleSave}>Save</CommonButton>
       </Grid>
     </div>
   );

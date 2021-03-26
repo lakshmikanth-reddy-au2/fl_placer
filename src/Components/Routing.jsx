@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import AddEmployee from './EmployeeComponent/AddEmployee';
-import EmployeeList from './EmployeeComponent/EmployeeList';
+import AddEmployee from './EmployeeComponent/AddEmployee.jsx';
+import EmployeeList from './EmployeeComponent/EmployeeList.jsx';
 
 
 export default function Routing() {

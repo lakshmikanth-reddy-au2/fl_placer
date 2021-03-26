@@ -48,12 +48,18 @@
 .main-Content {
   width: 100%;
 }
-.btn-primary {
+.btn {
   padding: 20px !important;
   margin: 10px !important;
+  min-width: 100px !important;
+}
+.btn-primary {
   background-color: #02BF94 !important;
   color: #fff !important;
-  min-width: 100px !important;
+}
+.btn-secondary {
+  color: #02BF94 !important;
+  background-color: #fff !important;
 }
 .MuiTableHead-root .MuiTableCell-root{
   background-color: #02BF94;

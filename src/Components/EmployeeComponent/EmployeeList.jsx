@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CustomTable from '../Custom/MaterialTable'
 import {Button, Grid } from '@material-ui/core';
-import CommonButton from '../Common/Button';
+import CommonButton from '../Common/Button.jsx';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {manipulateEcployeeListAction} from "../../Actions/actions";
-import AddEmployee from './AddEmployee';
+import AddEmployee from './AddEmployee.jsx';
 
 export default function EmployeeList(props) {
 
@@ -46,9 +46,9 @@ export default function EmployeeList(props) {
     }
     return (
         <div className="main-Content">
-            <Grid container spacing={3} justify="flex-end">
-                <Grid item xs={12} md={3} sm={3} >
-                    {!isUpdate && <CommonButton handleAddButtonClick={handleAddButtonClick}>Add Employee</CommonButton>}
+            <Grid container spacing={3} justify="flex-end" className="add-employee-btn-grid">
+                <Grid item xs={12} md={3} sm={3} className="add-emp-item" >
+                    {!isUpdate && <CommonButton className="btn btn-primary" handleAddButtonClick={handleAddButtonClick}>Add Employee</CommonButton>}
                 </Grid>
             </Grid>
             {isUpdate ? <AddEmployee isUpdate={isUpdate} data={selectedRow} handleCancel={handleCancel} /> : 
